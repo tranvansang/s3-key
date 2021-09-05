@@ -1,6 +1,6 @@
 {
   "name": "s3-key",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "AWS S3 key utilities",
   "main": "index.js",
   "repository": "https://github.com/tranvansang/s3-key",
