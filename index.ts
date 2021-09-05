@@ -1,5 +1,6 @@
 import {range} from 'rrjx'
 import escapeRegExp from 'lodash.escaperegexp'
+import 'core-js/features/string/replace-all'
 
 /**
 good name to test
