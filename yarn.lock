@@ -5,36 +5,6 @@ __metadata:
   version: 4
   cacheKey: 8
 
-"@types/lodash.escaperegexp@npm:^4.1.6":
-  version: 4.1.6
-  resolution: "@types/lodash.escaperegexp@npm:4.1.6"
-  dependencies:
-    "@types/lodash": "*"
-  checksum: 64715fdc204419a9807bc5c6a5a76557b35c55ac033988fe0568ddc29bca4f3afe269ea5ac9517f27a904938eb356b7f221e816db662c405408797cb2980310d
-  languageName: node
-  linkType: hard
-
-"@types/lodash@npm:*":
-  version: 4.14.172
-  resolution: "@types/lodash@npm:4.14.172"
-  checksum: 5fc51ea40d7e455bd1c760bcc60c9e81f82d85988666d4d4969bd8311367c63bbf1fe2be48755ba87836710e45fff94014ec164ebe6ccaa72815014981152434
-  languageName: node
-  linkType: hard
-
-"core-js@npm:^3.17.2":
-  version: 3.17.2
-  resolution: "core-js@npm:3.17.2"
-  checksum: 54df8d467bc59ff65f9db3764a486f102605483c7c2b0bad8d83171bfcfa3e0e38197a7349f072249cc07d3b140e92c655b4ce08315206dcfae0e4c3b744f378
-  languageName: node
-  linkType: hard
-
-"lodash.escaperegexp@npm:^4.1.2":
-  version: 4.1.2
-  resolution: "lodash.escaperegexp@npm:4.1.2"
-  checksum: 6d99452b1cfd6073175a9b741a9b09ece159eac463f86f02ea3bee2e2092923fce812c8d2bf446309cc52d1d61bf9af51c8118b0d7421388e6cead7bd3798f0f
-  languageName: node
-  linkType: hard
-
 "rrjx@npm:^0.0.2":
   version: 0.0.2
   resolution: "rrjx@npm:0.0.2"
@@ -46,9 +16,6 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "s3-key@workspace:."
   dependencies:
-    "@types/lodash.escaperegexp": ^4.1.6
-    core-js: ^3.17.2
-    lodash.escaperegexp: ^4.1.2
     rrjx: ^0.0.2
     typescript: ^4.4.2
   languageName: unknown

@@ -1,6 +1,4 @@
 import {range} from 'rrjx'
-import escapeRegExp from 'lodash.escaperegexp'
-import 'core-js/features/string/replace-all'
 
 /**
 good name to test
@@ -158,52 +156,3 @@ export const encodeS3Key = (key: string) => encodeURI(key)
 export const decodeS3Key = (encodedKey: string) => decodeURI(Object
 	.entries(s3Encodings)
 	.reduce((acc, [c, cc]) => acc.replaceAll(cc, c), encodedKey))
-
-const s3UrlPrefixRegex = (
-	{bucketName, region, endpoint = 'amazonaws.com'}: {
-		bucketName: string
-		region: string
-		endpoint?: string
-	}
-) => new RegExp(`^https?://(${escapeRegExp(bucketName)}\\.s3[.-]${escapeRegExp(region)}\\.${escapeRegExp(endpoint)}|s3\\.${escapeRegExp(region)}\\.${escapeRegExp(endpoint)}/${escapeRegExp(bucketName)})/`)
-
-// url must satisfy isS3Url
-export const urlToS3Key = (
-	url: string,
-	config: {
-		bucketName: string
-		region: string
-		endpoint?: string
-	}
-) => {
-	const encodedKey = url.replace(s3UrlPrefixRegex(config), '')
-	return decodeS3Key(encodedKey)
-}
-
-export const isS3Url = (
-	url: string,
-	config: {
-		bucketName: string
-		region: string
-		endpoint?: string
-	}
-) => s3UrlPrefixRegex(config).test(url)
-
-// key must be sanitized with sanitizeS3Key before passing to this function
-// https://docs.aws.amazon.com/AmazonS3/latest/userguide/VirtualHosting.html
-export const s3KeyToUrl = (
-	key: string,
-	{bucketName, region, endpoint = 'amazonaws.com'}: {
-		bucketName: string
-		region: string
-		endpoint?: string
-	},
-	{
-		dashStyle = false,
-		pathStyle = false
-		// path-style will be deprecated
-		// https://aws.amazon.com/blogs/aws/amazon-s3-path-deprecation-plan-the-rest-of-the-story/
-	} = {}
-) => pathStyle
-	? `https://s3$.${region}.${endpoint}/${bucketName}/${encodeS3Key(key)}`
-	: `https://${bucketName}.s3${dashStyle ? '-' : '.'}${region}.${endpoint}/${encodeS3Key(key)}`
