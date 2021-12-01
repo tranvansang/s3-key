@@ -160,11 +160,12 @@ export const decodeS3Key = (encodedKey: string) => decodeURI(Object
 	.reduce((acc, [c, cc]) => acc.replaceAll(cc, c), encodedKey))
 
 const s3UrlPrefixRegex = (
-	{bucketName, region}: {
+	{bucketName, region, endpoint = 'amazonaws.com'}: {
 		bucketName: string
 		region: string
+		endpoint?: string
 	}
-) => new RegExp(`^https?://(${escapeRegExp(bucketName)}\\.s3[.-]${escapeRegExp(region)}\\.amazonaws\\.com|s3\\.${escapeRegExp(region)}\\.amazonaws\\.com/${escapeRegExp(bucketName)})/`)
+) => new RegExp(`^https?://(${escapeRegExp(bucketName)}\\.s3[.-]${escapeRegExp(region)}\\.${escapeRegExp(endpoint)}|s3\\.${escapeRegExp(region)}\\.${escapeRegExp(endpoint)}/${escapeRegExp(bucketName)})/`)
 
 // url must satisfy isS3Url
 export const urlToS3Key = (
@@ -172,6 +173,7 @@ export const urlToS3Key = (
 	config: {
 		bucketName: string
 		region: string
+		endpoint?: string
 	}
 ) => {
 	const encodedKey = url.replace(s3UrlPrefixRegex(config), '')
@@ -183,6 +185,7 @@ export const isS3Url = (
 	config: {
 		bucketName: string
 		region: string
+		endpoint?: string
 	}
 ) => s3UrlPrefixRegex(config).test(url)
 
@@ -190,9 +193,10 @@ export const isS3Url = (
 // https://docs.aws.amazon.com/AmazonS3/latest/userguide/VirtualHosting.html
 export const s3KeyToUrl = (
 	key: string,
-	{bucketName, region}: {
+	{bucketName, region, endpoint = 'amazonaws.com'}: {
 		bucketName: string
 		region: string
+		endpoint?: string
 	},
 	{
 		dashStyle = false,
@@ -201,5 +205,5 @@ export const s3KeyToUrl = (
 		// https://aws.amazon.com/blogs/aws/amazon-s3-path-deprecation-plan-the-rest-of-the-story/
 	} = {}
 ) => pathStyle
-	? `https://s3$.${region}.amazonaws.com/${bucketName}/${encodeS3Key(key)}`
-	: `https://${bucketName}.s3${dashStyle ? '-' : '.'}${region}.amazonaws.com/${encodeS3Key(key)}`
+	? `https://s3$.${region}.${endpoint}/${bucketName}/${encodeS3Key(key)}`
+	: `https://${bucketName}.s3${dashStyle ? '-' : '.'}${region}.${endpoint}/${encodeS3Key(key)}`
