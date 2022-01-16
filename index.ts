@@ -1,4 +1,4 @@
-import {range} from 'rrjx'
+import range from 'rrjx'
 
 /**
 good name to test

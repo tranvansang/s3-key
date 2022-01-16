@@ -1,13 +1,13 @@
 {
   "name": "s3-key",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "AWS S3 key utilities",
   "main": "index.js",
   "repository": "https://github.com/tranvansang/s3-key",
   "author": "Tran Sang <me@transa.ng>",
   "license": "MIT",
   "dependencies": {
-    "rrjx": "^0.0.2"
+    "rrjx": "^0.1.1"
   },
   "files": [
     "index.js",
