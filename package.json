@@ -1,6 +1,6 @@
 {
   "name": "s3-key",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "description": "AWS S3 key utilities",
   "main": "index.js",
   "repository": "https://github.com/tranvansang/s3-key",
@@ -11,12 +11,14 @@
   },
   "files": [
     "index.js",
-    "index.d.ts"
+    "index.d.ts",
+    "index.js.map"
   ],
   "scripts": {
-    "build": "rm -rf index.d.ts index.js && tsc --downlevelIteration --declaration --esModuleInterop --outDir . --lib esnext index.ts"
+    "build": "rm -rf index.d.ts index.js index.js.map && tsc --downlevelIteration --declaration --sourceMap --esModuleInterop --outDir . --lib esnext index.ts"
   },
   "devDependencies": {
-    "typescript": "^4.4.2"
-  }
+    "typescript": "^5.0.3"
+  },
+  "packageManager": "yarn@3.5.0"
 }
