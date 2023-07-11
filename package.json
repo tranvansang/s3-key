@@ -4,7 +4,7 @@
   "description": "AWS S3 key utilities",
   "main": "index.js",
   "repository": "https://github.com/tranvansang/s3-key",
-  "author": "Tran Sang <me@transa.ng>",
+  "author": "Tran Sang <t@sang.jp>",
   "license": "MIT",
   "dependencies": {
     "rrjx": "^0.1.1"
