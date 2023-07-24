@@ -5,10 +5,10 @@ __metadata:
   version: 6
   cacheKey: 8
 
-"rrjx@npm:^0.1.1":
-  version: 0.1.1
-  resolution: "rrjx@npm:0.1.1"
-  checksum: 7288e26f5e1bfb75bb6225d1d1228b11610a80e49f081be96509e2757e9983477e93070e84573417b529bac0f824caec302165f5187edb89ed8487851a8a7373
+"rrjx@npm:^1.1.1":
+  version: 1.1.1
+  resolution: "rrjx@npm:1.1.1"
+  checksum: 63ff1600bdffca7bf319f464b5d310c22736c8ea4d40425cbeb19d6ec9b02b8a11ffe2d7b0cf4c9ddc06996c0691d61d2b5a57b95165fd039a3a04aafe8a78cc
   languageName: node
   linkType: hard
 
@@ -16,7 +16,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "s3-key@workspace:."
   dependencies:
-    rrjx: ^0.1.1
+    rrjx: ^1.1.1
     typescript: ^5.0.3
   languageName: unknown
   linkType: soft
